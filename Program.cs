@@ -2,7 +2,7 @@
 {
     int Result=0;
     int[] myArray=MakeArray(TaskNumber,ArraySize);
-    for (int counter=0; counter<(ArraySize-1); counter++)
+    for (int counter=0; counter<ArraySize; counter++)
     {
         if (myArray[counter]%2==0)
            Result++;
@@ -14,7 +14,7 @@ void Task36(int TaskNumber,int ArraySize)
 {
     int Result=0;
     int[] myArray=MakeArray(TaskNumber,ArraySize);
-    for (int counter=0; counter<ArraySize-1; counter=counter+2)
+    for (int counter=0; counter<ArraySize; counter=counter+2)
     {
         Result=Result+myArray[counter];
     }
@@ -53,12 +53,12 @@ int[] MakeArray(int TaskNumber, int ArraySize)
             break;
             case 36:
                 if (sign.Next(-1,1)==0)
-                    myArray[counter]=temp.Next();
+                    myArray[counter]=temp.Next(); // здесь ставил тестовый диапазон поменьше
                 else
-                    myArray[counter]=(-1)*temp.Next();
+                    myArray[counter]=(-1)*temp.Next(); // здесь ставил тестовый диапазон поменьше
             break;
             case 38:
-                myArray[counter]=temp.Next();
+                myArray[counter]=temp.Next(); //здесь логичней сразу делать temp.NextDouble и сразу посчитать в методе, а наружу передать мусор, но придется вывод в MakeArray городить, не стал так делать
             break;
         }
     Console.Write("  {0}  ",myArray[counter] );
@@ -83,12 +83,15 @@ int ArraySize =Convert.ToInt32(Console.ReadLine());
 switch (TaskNumber)
 {
     case 34:
+        Console.WriteLine(" Задача 34: массив заполнен случайными положительными трёхзначными числами.Покажем количество чётных чисел в массиве.");
         Task34(TaskNumber, ArraySize);
     break;
     case 36:
+        Console.WriteLine("Задача 36:массив заполнен случайными числами.Найдем сумму элементов, стоящих на нечётных позициях.");
         Task36(TaskNumber, ArraySize);
     break;
     case 38:
+        Console.WriteLine("Задача 38:массив вещественных чисел.Найдем разницу между максимальным и минимальным элементами массива.");
         Task38(TaskNumber, ArraySize);
     break;
     default:
